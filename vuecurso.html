@@ -10,11 +10,17 @@
     <div id="app">
         <img v-bind:src="img" v-bind:alt="name" width="45px">
         <h1>{{name}}
-
-            <span v-show="changePercent > 0">👍</span>
-            <span v-show="changePercent < 0">👎</span>
-            <span v-show="changePercent == 0">🤞</span>
+            <span v-if="changePercent > 0">👍</span>
+            <span v-else-if="changePercent < 0">👎</span>
+            <span v-else>🤞</span>
         </h1>
+        <ul>
+            <li v-for="(p, i) in prices">{{i+1}} - {{p}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(p, i) in pricesWithDays" v-bind:key="p.value">{{i+1}} - {{p.day}} - {{p.value}} </li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="app.js"></script>
