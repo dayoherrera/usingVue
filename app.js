@@ -6,7 +6,8 @@ new Vue({
         return {
             name: 'Bitcoin',
             img: 'https://claveprivada.com/wp-content/uploads/2018/10/1024px-Bitcoin.svg-800x800.png',
-            changePercent: -1,
+            changePercent: 1,
+            price: 8200,
             pricesWithDays: [
                 { day: 'Lunes', value: 8400 },
                 { day: 'Martes', value: 7900 },

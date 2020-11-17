@@ -9,7 +9,9 @@
 <body>
     <div id="app">
         <img v-on:mouseover="toggleShowPrices()" v-on:mouseout="toggleShowPrices()" v-bind:src="img" v-bind:alt="name" width="45px">
-        <h1>{{name}}
+
+        <h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
+            {{name}}
             <span v-if="changePercent > 0">👍</span>
             <span v-else-if="changePercent < 0">👎</span>
             <span v-else>🤞</span>
@@ -18,7 +20,9 @@
         
 
         <ul v-show=showPrices>
-            <li v-for="(p, i) in pricesWithDays" v-bind:key="p.value">{{i+1}} - {{p.day}} - {{p.value}} </li>
+            <li 
+            v-bind:class="{ orange: p.value == price, red: p.value < price, green: p.value > price}"
+            v-for="(p, i) in pricesWithDays" v-bind:key="p.value">{{i+1}} - {{p.day}} - {{p.value}} </li>
         </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
