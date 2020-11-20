@@ -6,6 +6,7 @@ new Vue({
         return {
             name: 'Bitcoin',
             symbol: 'BTC',
+            value: 0, // propiedad para Two-Way Data Binding
             img: 'https://claveprivada.com/wp-content/uploads/2018/10/1024px-Bitcoin.svg-800x800.png',
             changePercent: -1,
             price: 8200,
@@ -22,13 +23,21 @@ new Vue({
             showPrices: false
         }
     },
-    computed: {
+    computed: { // propiedad computada
         title(){
             return `${this.name} - ${this.symbol}`
+        },
+
+        convertedValue(){ // Two-Way Data Binding
+            if(!this.value){
+                return 0;
+            }else{
+                return (this.value /this.price);
+            }
         }
     },
-    watch: {
-        showPs(newVal, oldVal){
+    watch: { //watchers
+        showPrices(newVal, oldVal){
             console.log(newVal, oldVal);
         }
     },
