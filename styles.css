@@ -1,11 +1,8 @@
-.red{
-    color: red;
-}
-
-.green{
-    color: green;
-}
-
-.orange{
-    color: orange;
-}
+html {
+    padding: 20px;
+    color: #3d3d3d;
+  }
+  
+  .red {
+    color: tomato;
+  }
