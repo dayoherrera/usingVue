@@ -32,6 +32,9 @@ Vue.component('coin-detail',
         methods: {
             toggleShowPrices(){
                 this.showPrices = !this.showPrices;
+
+                this.$emit('change-color',
+                this.showPrices ? 'ffe396' : '3d3d3d');
             }
         },
         computed: { // propiedad computada
@@ -74,6 +77,11 @@ new Vue({
                 ]
             },
             color: 'f4f4f4'
+        }
+    },
+    methods:{
+        updateColor(color){
+            this.color = color || this.color.split('').reverse().join('');
         }
     }
 })
