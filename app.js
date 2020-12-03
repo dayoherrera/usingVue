@@ -23,6 +23,8 @@ Vue.component('coin-detail',
             <input type="number" v-model="value">
             <span>{{convertedValue}}</span>
 
+            <slot name="text"></slot>
+
             <ul v-show=showPrices>
                 <li 
                 v-bind:class="{ orange: p.value == coin.price, red: p.value < coin.price, green: p.value > coin.price}" v-for="(p, i) in coin.pricesWithDays" v-bind:key="p.value">{{i+1}} - {{p.day}} - {{p.value}} </li>
