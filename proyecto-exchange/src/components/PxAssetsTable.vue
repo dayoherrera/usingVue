@@ -21,7 +21,7 @@
       >
         <td>
           <img
-            class="w-6 h-6"
+            class="w-7 h-6"
             :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`"
             :alt="a.name"
           />
@@ -33,13 +33,19 @@
           <b>{{ a.name }} </b>
         </td>
         <td>
-          <b>{{ a.priceUsd }} </b>
+          <b>{{ a.priceUsd | dollar }} </b>
         </td>
         <td>
-          <b>{{ a.marketCapUsd }} </b>
+          <b>{{ a.marketCapUsd | dollar }} </b>
         </td>
-        <td>
-          <b>{{ a.changePercent24Hr }} </b>
+        <td
+          :class="
+            a.changePercent24Hr.includes('-')
+              ? 'text-red-600'
+              : 'text-green-600'
+          "
+        >
+          <b>{{ a.changePercent24Hr | percent }} </b>
         </td>
         <td class="hidden sm:block"></td>
       </tr>
